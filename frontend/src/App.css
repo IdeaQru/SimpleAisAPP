@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.app-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  height: 100vh;
+  overflow: hidden;
+  background: #020617;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 380px;
+  height: 100vh;
+  background: linear-gradient(180deg, #0F172A 0%, #020617 100%);
+  border-right: 1px solid #1E293B;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease, padding 0.3s ease;
+  z-index: 20;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #1E293B;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+.sidebar.collapsed .sidebar-header {
+  justify-content: center;
+}
+
+.collapse-btn {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.collapse-btn:hover {
+  background: #1E293B;
+  color: #06B6D4;
+}
+
+/* Connection Status */
+.connection-status {
+  padding: 1.5rem;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: 0.5rem;
+  margin: 1rem 1.5rem;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.1);
+}
+
+/* Vessel List */
+.vessel-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+.vessel-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.vessel-list::-webkit-scrollbar-track {
+  background: #0F172A;
+}
+
+.vessel-list::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+.vessel-list::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+.vessel-item {
+  padding: 1rem;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid #1E293B;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  backdrop-filter: blur(8px);
+}
+
+.vessel-item:hover {
+  background: rgba(30, 41, 59, 0.9);
+  border-color: #06B6D4;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+  transform: translateX(4px);
+}
+
+.vessel-badge {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Map Container */
+.map-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(2, 6, 23, 0.9);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.settings-modal {
+  width: 90%;
+  max-width: 500px;
+  padding: 2rem;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid #1E293B;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.2);
+  backdrop-filter: blur(16px);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Vessel Detail Panel */
+.vessel-detail-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 480px;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.98);
+  border-left: 1px solid #1E293B;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  z-index: 40;
+  overflow-y: auto;
+  animation: slideInRight 0.3s ease;
+  backdrop-filter: blur(16px);
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.vessel-detail-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.vessel-detail-panel::-webkit-scrollbar-track {
+  background: #0F172A;
+}
+
+.vessel-detail-panel::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+.vessel-detail-header {
+  padding: 2rem;
+  border-bottom: 1px solid #1E293B;
+  background: rgba(2, 6, 23, 0.6);
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  position: relative;
+}
+
+.vessel-detail-header::before,
+.vessel-detail-header::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #06B6D4;
+}
+
+.vessel-detail-header::before {
+  top: 1rem;
+  left: 1rem;
+  border-right: none;
+  border-bottom: none;
+}
+
+.vessel-detail-header::after {
+  bottom: 1rem;
+  right: 1rem;
+  border-left: none;
+  border-top: none;
+}
+
+.vessel-detail-content {
+  padding: 2rem;
+}
+
+.detail-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: 0.5rem;
+  backdrop-filter: blur(8px);
+}
+
+.detail-section-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #94A3B8;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #1E293B;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detail-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #64748B;
+}
+
+.detail-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #06B6D4;
+  letter-spacing: -0.025em;
+}
+
+/* Leaflet Popup Customization */
+.leaflet-popup-content-wrapper {
+  background: rgba(15, 23, 42, 0.98) !important;
+  border: 1px solid #1E293B !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.3) !important;
+  backdrop-filter: blur(12px) !important;
+  color: #F8FAFC !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(15, 23, 42, 0.98) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    width: 100%;
+    max-width: 380px;
+    height: 100vh;
+    z-index: 30;
+  }
+  
+  .sidebar.collapsed {
+    width: 60px;
+  }
+  
+  .vessel-detail-panel {
+    width: 100%;
+    max-width: 100vw;
+  }
+}

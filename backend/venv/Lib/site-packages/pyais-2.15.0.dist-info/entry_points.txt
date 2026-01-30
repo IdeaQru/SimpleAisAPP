@@ -1,0 +1,3 @@
+[console_scripts]
+ais-decode = pyais.ais_decode:main
+ais-encode = pyais.ais_encode:main

@@ -1,0 +1,155 @@
+{
+  "identity": {
+    "name": "Poseidon Eye",
+    "persona": "E1 - The Anti-AI Designer",
+    "theme": "Deep Maritime Operations (Dark Mode)",
+    "vibe": "Technical, Precision, Situational Awareness, 'Bridge Control Room'"
+  },
+  "typography": {
+    "fonts": [
+      {
+        "family": "Rajdhani",
+        "weights": ["500", "600", "700"],
+        "url": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap",
+        "usage": "Headings, KPIs, Vessel Names, Call Signs"
+      },
+      {
+        "family": "JetBrains Mono",
+        "weights": ["400", "500"],
+        "url": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap",
+        "usage": "Coordinates, Speed (SOG), Course (COG), MMSI, Time, Data Tables"
+      },
+      {
+        "family": "Inter",
+        "weights": ["400", "500", "600"],
+        "url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap",
+        "usage": "Body text, Labels, Form Inputs, Tooltips"
+      }
+    ],
+    "rules": {
+      "headings": "font-rajdhani font-bold uppercase tracking-wider text-slate-100",
+      "data_values": "font-mono text-cyan-400 tracking-tight",
+      "labels": "font-inter text-xs font-medium text-slate-400 uppercase tracking-widest"
+    }
+  },
+  "colors": {
+    "palette": {
+      "background": "#020617",
+      "surface": "#0F172A",
+      "surface_highlight": "#1E293B",
+      "primary": "#06B6D4",
+      "secondary": "#334155",
+      "accent": "#38BDF8",
+      "success": "#10B981",
+      "warning": "#F59E0B",
+      "danger": "#EF4444",
+      "text_primary": "#F8FAFC",
+      "text_secondary": "#94A3B8",
+      "border": "#1E293B"
+    },
+    "semantic": {
+      "vessel_moving": "#10B981",
+      "vessel_stopped": "#F59E0B",
+      "vessel_offline": "#64748B",
+      "water_depth": "#082F49",
+      "radar_sweep": "rgba(6, 182, 212, 0.2)"
+    },
+    "tailwind_overrides": {
+      "background": "bg-slate-950",
+      "card": "bg-slate-900/90",
+      "border": "border-slate-800"
+    }
+  },
+  "layout": {
+    "structure": "Map-Centric Dashboard",
+    "z_index": {
+      "map": "z-0",
+      "overlays": "z-10",
+      "panels": "z-20",
+      "modals": "z-50",
+      "tooltips": "z-60"
+    },
+    "spacing": {
+      "panel_padding": "p-6",
+      "gap_standard": "gap-4",
+      "gap_dense": "gap-2"
+    },
+    "grid_system": {
+      "dashboard": "grid grid-cols-1 md:grid-cols-12 h-screen overflow-hidden",
+      "sidebar": "col-span-12 md:col-span-3 lg:col-span-2 h-full border-r border-slate-800 bg-slate-950/95 backdrop-blur-xl z-20 flex flex-col",
+      "main_view": "col-span-12 md:col-span-9 lg:col-span-10 relative h-full"
+    }
+  },
+  "visual_enhancers": {
+    "glassmorphism": "backdrop-blur-md bg-slate-900/80 border border-slate-700/50 shadow-xl",
+    "hud_borders": "border border-cyan-900/30 shadow-[0_0_15px_rgba(6,182,212,0.1)]",
+    "active_glow": "shadow-[0_0_10px_rgba(6,182,212,0.4)] border-cyan-500/50",
+    "scifi_corners": "relative before:absolute before:top-0 before:left-0 before:w-2 before:h-2 before:border-t-2 before:border-l-2 before:border-cyan-500 after:absolute after:bottom-0 after:right-0 after:w-2 after:h-2 after:border-b-2 after:border-r-2 after:border-cyan-500"
+  },
+  "components": {
+    "Button": {
+      "default": "font-rajdhani font-bold uppercase tracking-wider rounded-sm transition-all duration-200",
+      "primary": "bg-cyan-600 hover:bg-cyan-500 text-white shadow-[0_0_10px_rgba(8,145,178,0.5)] hover:shadow-[0_0_20px_rgba(8,145,178,0.7)]",
+      "ghost": "hover:bg-slate-800 text-slate-300 hover:text-cyan-400"
+    },
+    "Card": {
+      "base": "bg-slate-900/90 border border-slate-800 rounded-md shadow-lg backdrop-blur-sm",
+      "header": "border-b border-slate-800 p-4 bg-slate-950/50"
+    },
+    "Input": {
+      "base": "bg-slate-950 border-slate-700 text-slate-100 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 font-mono text-sm rounded-sm"
+    },
+    "Table": {
+      "wrapper": "rounded-md border border-slate-800 overflow-hidden",
+      "header": "bg-slate-950 text-slate-400 font-rajdhani uppercase text-xs tracking-wider",
+      "row": "hover:bg-slate-800/50 transition-colors border-b border-slate-800/50",
+      "cell": "font-mono text-sm text-slate-300 py-3"
+    },
+    "Badge": {
+      "base": "rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider border",
+      "variants": {
+        "moving": "bg-emerald-950/50 text-emerald-400 border-emerald-900",
+        "stopped": "bg-amber-950/50 text-amber-400 border-amber-900",
+        "offline": "bg-slate-800 text-slate-400 border-slate-700"
+      }
+    }
+  },
+  "assets": {
+    "images": {
+      "login_bg": "https://images.unsplash.com/photo-1657694421168-86d86e04c025?q=80&w=2000&auto=format&fit=crop",
+      "sidebar_texture": "https://images.unsplash.com/photo-1528804588124-caa77502e501?q=80&w=1000&auto=format&fit=crop",
+      "placeholder_ship": "https://images.unsplash.com/photo-1695372596657-84b00c9d2e05?q=80&w=800&auto=format&fit=crop"
+    },
+    "icons": {
+      "library": "lucide-react",
+      "preferred": ["Ship", "Anchor", "Navigation", "Radar", "Map", "Settings", "Signal", "Wifi", "WifiOff", "Wind", "Waves"]
+    }
+  },
+  "instructions_to_main_agent": [
+    "1. SETUP: Install 'lucide-react' and 'leaflet' / 'react-leaflet' immediately.",
+    "2. THEME: Force 'dark' class on the html element. Do not support light mode. This is a bridge operation tool.",
+    "3. MAP: Use a dark-themed tile layer for OpenStreetMap (e.g., CartoDB Dark Matter). Standard OSM tiles are too bright.",
+    "4. LAYOUT: Create a full-screen map background. Float the 'Vessel List' as a collapsible sidebar on the left. Float 'Connection Settings' as a small widget top-right.",
+    "5. INTERACTION: Clicking a vessel in the list or map MUST open a 'Vessel Detail' panel sliding from the right.",
+    "6. PERFORMANCE: Use 'react-window' or virtualized lists if the vessel count exceeds 100.",
+    "7. VISUALS: Use the 'scifi_corners' style on the Vessel Detail panel to give it a technical HUD look.",
+    "8. DATA: Format all coordinates to 4 decimal places. Format speed to 1 decimal place with 'kn' suffix.",
+    "9. ANIMATION: Add a subtle 'pulse' animation to the vessel markers on the map."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy",
+    "Use glass-morphism effects with backdrop filters (12-24px blur)",
+    "You MUST NOT apply universal transition. Eg: transition: all. This results in breaking transforms.",
+    "You MUST NOT center align the app container.",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations",
+    "NEVER: use AI assistant Emoji characters like 🤖🧠 etc for icons.",
+    "Every interaction needs micro-animations - hover states, transitions.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "Prioritize using pre-existing components from src/components/ui when applicable",
+    "Components MUST use named exports",
+    "Pages MUST use default exports",
+    "Use sonner for toasts"
+  ]
+}
